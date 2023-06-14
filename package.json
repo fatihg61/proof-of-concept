@@ -1,21 +1,34 @@
 {
   "name": "server-side-rendering",
-  "version": "0.0.0",
-  "private": true,
-  "scripts": {
-    "dev": "nodemon app.js",
-    "start": "node ./bin/www"
+  "version": "0.0.1",
+  "description": "Het is een live-coded voorbeeld van SSR voor de Ad FDND.",
+  "main": "index.js",
+  "type": "module",
+  "directories": {
+    "doc": "docs"
   },
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ju5tu5/server-side-rendering.git"
+  },
+  "keywords": [
+    "node",
+    "express",
+    "ejs"
+  ],
+  "author": "J.P. Sturkenboom <j.p.sturkenboom@hva.nl>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ju5tu5/server-side-rendering/issues"
+  },
+  "homepage": "https://github.com/ju5tu5/server-side-rendering#readme",
   "dependencies": {
-    "cookie-parser": "~1.4.4",
-    "debug": "~2.6.9",
     "dotenv": "^16.0.3",
     "ejs": "^3.1.8",
-    "express": "^4.18.2",
-    "http-errors": "~1.6.3",
-    "morgan": "~1.9.1"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.22"
+    "express": "^4.18.2"
   }
 }
