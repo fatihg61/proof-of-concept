@@ -1,34 +1,21 @@
 {
-  "name": "connect-your-tribe-squad-page",
-  "version": "1.0.0",
-  "description": "Redesign met je squad een squadpagina op basis van een bestaande API.",
-  "main": "index.js",
-  "type": "module",
-  "directories": {
-    "doc": "docs"
-  },
+  "name": "server-side-rendering",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon app.js",
+    "start": "node ./bin/www"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/fdnd-task/connect-your-tribe-squad-page.git"
-  },
-  "keywords": [
-    "node",
-    "express",
-    "ejs"
-  ],
-  "author": "J.P. Sturkenboom <j.p.sturkenboom@hva.nl>",
-  "license": "GPL-3.0",
-  "bugs": {
-    "url": "https://github.com/fdnd-task/connect-your-tribe-squad-page/issues"
-  },
-  "homepage": "https://github.com/fdnd-task/connect-your-tribe-squad-page#readme",
   "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
     "dotenv": "^16.0.3",
     "ejs": "^3.1.8",
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "http-errors": "~1.6.3",
+    "morgan": "~1.9.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
   }
 }
