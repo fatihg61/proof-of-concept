@@ -5,17 +5,26 @@ function expand () {
   document.body.classList.toggle('expand')
 }
 
-window.addEventListener('DOMContentLoaded', function() {
-  const loadingScreen = document.getElementById('loadingScreen');
-  const content = document.getElementById('content');
+const apiUrl = 'https://api.example.com/online-users'; // Replace with your API URL
 
-  setTimeout(function() {
-    loadingScreen.style.opacity = '0';
-    setTimeout(function() {
-      loadingScreen.style.display = 'none';
-      content.style.display = 'block';
-    }, 500);
-  }, 3000);
-});
+async function fetchOnlineUsers() {
+  try {
+    const response = await fetch(apiUrl);
+    const data = await response.json();
+
+    const onlineUsersContainer = document.getElementById('onlineUsers');
+
+    data.forEach((user) => {
+      const userElement = document.createElement('li');
+      userElement.innerHTML = `<span>${user.name}</span>`;
+
+      onlineUsersContainer.appendChild(userElement);
+    });
+  } catch (error) {
+    console.error('Error fetching online users:', error);
+  }
+}
+
+window.addEventListener('DOMContentLoaded', fetchOnlineUsers);
 
 

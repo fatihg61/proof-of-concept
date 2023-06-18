@@ -1,5 +1,16 @@
 <%- include("./partials/head.ejs") %>
 
-
+<div class="card-wrapper">
+       <% employee.forEach(employee => { %>
+       <div class="employee-card">
+         <img src="<%= employee.avatar %>" alt="<%= employee.name %> profile photo">
+         <div class="stripe"></div>
+         <div class="inside-card">
+           <h2><%= employee.first_name + " " + employee.last_name %></h2>
+           <span id="status-<%= employee.id %>"></span>
+         </div>
+       </div>
+       <% }) %>
+     </div>
 
 <%- include("./partials/foot.ejs") %>
