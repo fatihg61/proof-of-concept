@@ -25,12 +25,15 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
 // Maak een route voor de index
-app.get("/", (request, response) => {
+app.get("/", async (request, response) => {
   console.log(request.query.employees);
-  dataFetch(url).then((data) => {
-    console.log(data)
-    response.render("index",{employee:data});
-  });
+  const data = await dataFetch(url)
+  console.log(data);
+//   dataFetch(url).then((data) => {
+//     console.log(data)
+//     response.render("index",{employee:data});
+//   });
+response.render("index", {data})
 });
 
 // inklok magic
