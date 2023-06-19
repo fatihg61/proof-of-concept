@@ -6,7 +6,17 @@ const app = express()
 
 dotenv.config()
 
+// GET medewerkers
 const url = "https://api.werktijden.nl/2/employees";
+
+// GET inkloktijden
+const punchesUrl ="https://api.werktijden.nl/2/timeclock/punches";
+
+// POST inkloktijden
+const clockinUrl ="https://api.werktijden.nl/2/timeclock/clockin";
+
+// POST uitkloktijden
+const clockoutUrl="https://api.werktijden.nl/2/timeclock/clockout";
 
 const options = {
 	method: "GET",
@@ -36,7 +46,7 @@ app.get("/", async (request, response) => {
 response.render("index", {data})
 });
 
-// inklok magic
+// Inklokken
 
 app.post("/inklokken", async (req, res) => {
 	const departmentId = Number(req.body.department)
