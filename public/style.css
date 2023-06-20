@@ -130,4 +130,49 @@ body {
     color: #e84c3d;
   }
 
+  .card {
+    display: flex;
+    align-items: center;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 300px;
+  }
+  
+  .img-wrapper {
+    margin-right: 10px;
+  }
+  
+  .card-content {
+    flex-grow: 1;
+  }
+  
+  .mw-afdeling-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .employee-input {
+    width: 100%;
+    padding: 5px;
+    margin-top: 5px;
+  }
+  
+  .klok-btn {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .klok-btn:hover {
+    background-color: #45a049;
+  }
+  
   

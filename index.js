@@ -36,15 +36,40 @@ app.use(express.urlencoded({ extended: true }))
 
 // Maak een route voor de index
 app.get("/", async (request, response) => {
-  console.log(request.query.employees);
-  const data = await dataFetch(url)
-  console.log(data);
+//   console.log(request.query.employees);
+  const employees = await dataFetch(url)
+  const punches = await dataFetch(`https://api.werktijden.nl/2/timeclock/punches?departmentId=99173&start=2023-06-19&end=2023-06-20`)
+  const clockedIn = punches.data.filter(pu => pu.type === 'clock_in')
+  const clockedOut = punches.data.filter(pu => pu.type === 'clock_out')
+
+  let mwArrayIn = []
+  let mwArrayOut = []
+
+  clockedIn.forEach(ci => {
+	// Get all employees that are clocked in
+	const medewerkers = employees.filter(em => em.id === ci.employee_id)
+	const clockedInMw = medewerkers.find(mw => mw.id === ci.employee_id)
+
+	mwArrayIn.push(clockedInMw)
+})
+
+clockedOut.forEach(ci => {
+	// Get all employees that are clocked in
+	const medewerkers = employees.filter(em => em.id === ci.employee_id)
+	const clockedOutMw = medewerkers.find(mw => mw.id === ci.employee_id)
+
+	mwArrayOut.push(clockedOutMw)
+})
+
+  console.log(punches);
 //   dataFetch(url).then((data) => {
 //     console.log(data)
 //     response.render("index",{employee:data});
 //   });
-response.render("index", {data})
+response.render("index", {employees, mwArrayIn, mwArrayOut})
 });
+
+
 
 // Inklokken
 
@@ -54,7 +79,7 @@ app.post("/inklokken", async (req, res) => {
 
 	const postData = {
 		"employee_id": employeeId,
-		"department_id": departmentId,
+		"department_id": 99173,
 	}
 
 	postJson("https://api.werktijden.nl/2/timeclock/clockin", postData)
@@ -64,8 +89,22 @@ app.post("/inklokken", async (req, res) => {
 app.get("/inklokken", async (req, res) => {
 	const departments = await dataFetch("https://api.werktijden.nl/2/departments")
 	const employees = await dataFetch("https://api.werktijden.nl/2/employees")
+	const punches = await dataFetch(`https://api.werktijden.nl/2/timeclock/punches?departmentId=99173&start=2023-06-19&end=2023-06-20`)
+
+	const clockedOut = punches.data.filter(pu => pu.type === 'clock_out')
+
+	let mwArrayOut = []
+
+	clockedOut.forEach(ci => {
+		// Get all employees that are clocked in
+		const medewerkers = employees.filter(em => em.id === ci.employee_id)
+		const clockedOutMw = medewerkers.find(mw => mw.id === ci.employee_id)
+	
+		mwArrayOut.push(clockedOutMw)
+	})
+
   
-	res.render("inklokken", {title:"Inklokken", departments, employees})
+	res.render("inklokken", {title:"Inklokken", departments, employees, mwArrayOut})
 })
 
 app.post("/uitklokken", async (req, res) => {
@@ -74,7 +113,7 @@ app.post("/uitklokken", async (req, res) => {
 
 	const postData = {
 		"employee_id": employeeId,
-		"department_id": departmentId,
+		"department_id": 99173,
 	}
 
 	postJson("https://api.werktijden.nl/2/timeclock/clockout", postData)

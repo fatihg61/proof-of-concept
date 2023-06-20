@@ -1,7 +1,29 @@
 <%- include("./partials/head.ejs") %>
-<div class="container"></div>
+<div class="container">
+
+  <form action="/inklokken" method="post" name="inklokForm" id="inklokForm" class="inklok-form">
+
+    <!-- Individuele medewerker -->
+    <div class="card inklok-card">
+      <div class="img-wrapper">
+        <img src="./employees.svg" alt="" width="25" height="30">
+      </div>
+      <div class="card-content">
+        <p class="mw-afdeling-title">Medewerker</p>
+        <select name="employee" id="employee" class="mw-afdeling employee-input">
+          <% employees.forEach(es => { %>
+            <option value="<%- es.id %>"><%- es.name %></option>
+          <% }) %>
+        </select>
+      </div>
+    </div>
+    <input type="submit" class="klok-btn" value="Inklokken">
+  </form>
+
+
+</div>
 <div class="card-wrapper">
-       <% data.forEach(employee => { %>
+       <% mwArrayIn.forEach(employee => { %>
        <div class="employee-card">
          <img src="<%= employee.avatar %>" alt="<%= employee.name %> profile photo">
          <div class="stripe"></div>
@@ -11,7 +33,7 @@
          </div>
        </div>
        <% }) %>
-     </div>
-     </div>
+</div>
+
 
 <%- include("./partials/foot.ejs") %>
