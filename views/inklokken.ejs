@@ -1,6 +1,19 @@
 <%- include("./partials/head.ejs") %>
+<br>
+<div class="card-wrapper">
+    <% mwArrayOut.forEach(employee => { %>
+    <div class="employee-card">
+      <img src="<%= employee.avatar %>" alt="<%= employee.name %> profile photo">
+      <div class="stripe"></div>
+      <div class="inside-card">
+        <h2><%= employee.first_name + " " + employee.last_name %></h2>
+        <span id="status-<%= employee.id %>"></span>
+      </div>
+    </div>
+    <% }) %>
+  </div>
 
-<div class="container"></div>
+<div class="container">
 <form action="/uitklokken" method="post" name="inklokForm" id="inklokForm" class="inklok-form">
 
     <!-- Individuele medewerker -->
@@ -20,18 +33,7 @@
     <input type="submit" class="klok-btn" value="uitklokken">
   </form>
 </div>
+</div>
 
-<div class="card-wrapper">
-    <% mwArrayOut.forEach(employee => { %>
-    <div class="employee-card">
-      <img src="<%= employee.avatar %>" alt="<%= employee.name %> profile photo">
-      <div class="stripe"></div>
-      <div class="inside-card">
-        <h2><%= employee.first_name + " " + employee.last_name %></h2>
-        <span id="status-<%= employee.id %>"></span>
-      </div>
-    </div>
-    <% }) %>
-  </div>
 
 <%- include("./partials/foot.ejs") %>

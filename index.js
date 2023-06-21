@@ -1,5 +1,7 @@
 import * as dotenv from 'dotenv'
 import express, { request, response } from 'express'
+import { format, formatISO, add } from "date-fns"
+import { utcToZonedTime } from "date-fns-tz"
 
 // Maak een nieuwe express app
 const app = express()
@@ -34,11 +36,19 @@ app.use(express.static('public'));
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
+/* ----------------------- Date variables & functions ----------------------- */
+const date = new Date()
+const timeZone = 'Europe/Amsterdam'
+const zonedDate = utcToZonedTime(date, timeZone)
+const start = formatISO(new Date(zonedDate), { representation: 'date' })
+const end = formatISO(add(new Date(zonedDate), { days: 1 }), { representation: 'date' })
+
+
 // Maak een route voor de index
 app.get("/", async (request, response) => {
 //   console.log(request.query.employees);
   const employees = await dataFetch(url)
-  const punches = await dataFetch(`https://api.werktijden.nl/2/timeclock/punches?departmentId=99173&start=2023-06-19&end=2023-06-20`)
+  const punches = await dataFetch(`https://api.werktijden.nl/2/timeclock/punches?departmentId=99173&start=${start}&end=${end}`)
   const clockedIn = punches.data.filter(pu => pu.type === 'clock_in')
   const clockedOut = punches.data.filter(pu => pu.type === 'clock_out')
 
@@ -89,7 +99,7 @@ app.post("/inklokken", async (req, res) => {
 app.get("/inklokken", async (req, res) => {
 	const departments = await dataFetch("https://api.werktijden.nl/2/departments")
 	const employees = await dataFetch("https://api.werktijden.nl/2/employees")
-	const punches = await dataFetch(`https://api.werktijden.nl/2/timeclock/punches?departmentId=99173&start=2023-06-19&end=2023-06-20`)
+	const punches = await dataFetch(`https://api.werktijden.nl/2/timeclock/punches?departmentId=99173&start=2023-06-21&end=2023-06-22`)
 
 	const clockedOut = punches.data.filter(pu => pu.type === 'clock_out')
 
