@@ -14,8 +14,8 @@
 
 ## Beschrijving
 <!-- Bij Beschrijving staat kort beschreven wat voor project het is en wat je hebt gemaakt -->
-<!-- Voeg een mooie poster visual toe 📸 -->
-<!-- Voeg een link toe naar Github Pages 🌐-->
+![image](https://github.com/fatihg61/proof-of-concept/assets/112856020/b36e9162-f02b-4754-baa2-195f62018ff8)
+https://github.com/fatihg61/proof-of-concept
 
 ## Gebruik
 <!-- Bij Gebruik staat de user story, hoe het werkt en wat je er mee kan. -->
