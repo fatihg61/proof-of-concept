@@ -20,9 +20,13 @@ Doormiddel van dit project kunnen mensen inklokken en uitklokken.
 
 ## Kenmerken
 Express
+
 CSS
+
 JS
+
 RESTAPI
+
 Punching
 
 ## Installatie
