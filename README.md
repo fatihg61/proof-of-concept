@@ -1,7 +1,5 @@
-> _Fork_ deze leertaak en ga aan de slag. Onderstaande outline ga je gedurende deze taak in jouw eigen GitHub omgeving uitwerken. De instructie vind je in: [docs/INSTRUCTIONS.md](docs/INSTRUCTIONS.md)
-
 # Titel
-<!-- Geef je project een titel en schrijf in één zin wat het is -->
+Werktijden.nl
 
 ## Inhoudsopgave
 
@@ -13,20 +11,35 @@
   * [Licentie](#licentie)
 
 ## Beschrijving
-<!-- Bij Beschrijving staat kort beschreven wat voor project het is en wat je hebt gemaakt -->
-<!-- Voeg een mooie poster visual toe 📸 -->
-<!-- Voeg een link toe naar Github Pages 🌐-->
+Voor werktijden.nl hebben ik een overzichtspagina gemaakt waar je kan inzien wie heeft ingeklokt.
+![image](https://github.com/fatihg61/proof-of-concept/assets/112856020/b36e9162-f02b-4754-baa2-195f62018ff8)
+https://github.com/fatihg61/proof-of-concept
 
 ## Gebruik
-<!-- Bij Gebruik staat de user story, hoe het werkt en wat je er mee kan. -->
+Doormiddel van dit project kunnen mensen inklokken en uitklokken.
 
 ## Kenmerken
-<!-- Bij Kenmerken staat welke technieken zijn gebruikt en hoe. Wat is de HTML structuur? Wat zijn de belangrijkste dingen in CSS? Wat is er met JS gedaan en hoe? Misschien heb je iets met NodeJS gedaan, of heb je een framwork of library gebruikt? -->
+Express
+
+CSS
+
+JS
+
+RESTAPI
+
+Punching
 
 ## Installatie
-<!-- Bij Instalatie staat hoe een andere developer aan jouw repo kan werken -->
+1. Clone of download deze repository naar de gewenste folder.
+2. Open de root directory van dit project en open het project in een code editor naar keuze.
+3. Gebruik npm install om de benodigde packages te downloaden voor dit project.
+4. Start een server met npm run start.
 
 ## Bronnen
+FDND
+Werktijden.nl
+MDN
+
 
 ## Licentie
 
