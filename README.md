@@ -16,7 +16,7 @@ Voor werktijden.nl hebben ik een overzichtspagina gemaakt waar je kan inzien wie
 https://github.com/fatihg61/proof-of-concept
 
 ## Gebruik
-Doormiddel van dit project kunnen mensen inklokken en uitklokken.
+Deze tool is zowel lokaal te gebruiken als online. Lokaal gebruik is bedoeld voor developers en zorgt ervoor dat er mogelijke verbeteringen kunnen worden toegepast op het project. Online gebruik is bedoeld voor de eindgebruiker.
 
 ## Kenmerken
 Express
